@@ -1,0 +1,56 @@
+.navbar-empreender {
+  background-color: var(--emp-azul-escuro);
+}
+
+.navbar-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: var(--emp-verde);
+  color: #fff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-orgao {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.titulo-navbar {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.faixa-cores {
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    var(--emp-amarelo) 0 25%,
+    var(--emp-vermelho) 25% 50%,
+    var(--emp-azul) 50% 75%,
+    var(--emp-verde) 75% 100%
+  );
+}
+
+.btn-sair {
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50rem;
+  padding: 0.35rem 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-sair:hover {
+  color: #fff;
+  background-color: var(--emp-vermelho);
+  border-color: var(--emp-vermelho);
+}

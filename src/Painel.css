@@ -1,0 +1,79 @@
+.titulo-secao {
+  letter-spacing: -0.5px;
+}
+
+/* ===== Blocos de status ===== */
+.card-status {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-status-pendente { border-left: 5px solid #ffc107; }
+.card-status-validado { border-left: 5px solid #198754; }
+.card-status-negado   { border-left: 5px solid #dc3545; }
+
+/* ===== Tabela estilo Excel ===== */
+.container-excel {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.grid-excel {
+  display: grid;
+  /* CPF | NOME | CIDADE | EDITAL | CRÉDITO | PROTOCOLO | RESPONSÁVEL | AÇÕES */
+  grid-template-columns: 110px minmax(180px, 2fr) 120px 140px 130px 100px 100px 90px;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  min-width: 980px;
+}
+
+.grid-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6c757d;
+  font-weight: 800;
+  text-align: center;
+  padding: 0 1rem 0.5rem;
+  border-bottom: 2px solid #eaeaea;
+  margin-bottom: 0.5rem;
+}
+
+.celula-excel {
+  font-size: 0.85rem;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.celula-excel-bold {
+  font-weight: 700;
+  color: #212529;
+}
+
+.item-card {
+  transition: all 0.2s ease-in-out;
+  border-left: 4px solid transparent !important;
+}
+
+.item-card:hover {
+  background-color: #ffffff !important;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05) !important;
+  border-color: var(--emp-verde) !important;
+  transform: translateY(-2px);
+}
+
+/* ===== Botões de ação ===== */
+.btn-acao {
+  transition: all 0.2s ease;
+}
+
+.btn-acao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

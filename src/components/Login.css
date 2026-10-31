@@ -1,0 +1,72 @@
+.login-pagina {
+  min-height: 100vh;
+  background-color: var(--emp-azul-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.login-faixa {
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    var(--emp-amarelo) 0 25%,
+    var(--emp-vermelho) 25% 50%,
+    var(--emp-azul) 50% 75%,
+    var(--emp-verde) 75% 100%
+  );
+}
+
+.login-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background-color: var(--emp-verde);
+  color: #fff;
+  font-size: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-orgao {
+  color: #6c757d;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.login-card .form-control:focus {
+  border-color: var(--emp-verde);
+  box-shadow: 0 0 0 0.2rem rgba(44, 179, 74, 0.25);
+}
+
+.btn-login {
+  background-color: var(--emp-verde);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-login:hover:not(:disabled) {
+  background-color: var(--emp-verde);
+  color: #fff;
+  filter: brightness(0.9);
+}
+
+.btn-login:disabled {
+  background-color: var(--emp-verde);
+  color: #fff;
+  opacity: 0.6;
+}
