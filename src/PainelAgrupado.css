@@ -1,0 +1,8 @@
+.titulo-secao {
+  letter-spacing: -0.5px;
+}
+
+.campo-busca {
+  max-width: 460px;
+  flex: 1 1 280px;
+}

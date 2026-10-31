@@ -1,0 +1,32 @@
+.card-status {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-status-pendente { border-left: 5px solid #ffc107; }
+.card-status-validado { border-left: 5px solid #198754; }
+.card-status-negado   { border-left: 5px solid #dc3545; }
+.card-status-neutro   { border-left: 5px solid var(--emp-azul); }
+
+.bloco-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.bloco-cabecalho:hover {
+  background-color: #f8f9fa;
+}
+
+.bloco-cabecalho:focus-visible {
+  outline: 2px solid var(--emp-azul);
+  outline-offset: -2px;
+}

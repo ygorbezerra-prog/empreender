@@ -6,18 +6,18 @@ export const SITUACAO = {
 
 export const STATUS_CONFIG = [
   {
-    situacao: SITUACAO.PENDENTE,
-    titulo: 'Pendentes de Documento',
-    cardClass: 'card-status-pendente',
-    headerTextClass: 'text-warning-emphasis',
-    iconClass: 'bi bi-clock-history',
-  },
-  {
     situacao: SITUACAO.VALIDADO,
     titulo: 'Validados',
     cardClass: 'card-status-validado',
     headerTextClass: 'text-success',
     iconClass: 'bi bi-check-circle-fill',
+  },
+  {
+    situacao: SITUACAO.PENDENTE,
+    titulo: 'Pendentes de Documento',
+    cardClass: 'card-status-pendente',
+    headerTextClass: 'text-warning-emphasis',
+    iconClass: 'bi bi-clock-history',
   },
   {
     situacao: SITUACAO.NEGADO,
@@ -27,3 +27,10 @@ export const STATUS_CONFIG = [
     iconClass: 'bi bi-x-circle-fill',
   },
 ];
+
+// Cor do selo de situação dentro das tabelas
+export const BADGE_SITUACAO = {
+  [SITUACAO.VALIDADO]: 'bg-success',
+  [SITUACAO.PENDENTE]: 'bg-warning text-dark',
+  [SITUACAO.NEGADO]: 'bg-danger',
+};

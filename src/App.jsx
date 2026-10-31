@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './Home';
-import Painel from './Painel';
-
+import PainelAgrupado from './PainelAgrupado';
 function App() {
   const [logado, setLogado] = useState(true); // true só para testar sem backend
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ function App() {
       />
       <Route
         path="/inscricoes/:tipo"
-        element={logado ? <Painel onSair={sair} /> : <Navigate to="/login" replace />}
+        element={logado ? <PainelAgrupado onSair={sair} /> : <Navigate to="/login" replace />}
       />
 
       <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,0 +1,30 @@
+.tabela-inscricoes th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6c757d;
+  font-weight: 800;
+  white-space: nowrap;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.tabela-inscricoes td {
+  font-size: 0.85rem;
+  color: #495057;
+  white-space: nowrap;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Nome longo vira "..." em vez de empurrar as outras colunas */
+.tabela-inscricoes .col-nome {
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  color: #212529;
+}
+
+.tabela-inscricoes .col-cpf {
+  color: #6c757d;
+}

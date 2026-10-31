@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Rodape.css';
 export default function Rodape({ onExportar }) {
   return (
     <footer className="bg-white border-top pt-4 pb-3 px-4 mt-auto">
