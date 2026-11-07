@@ -28,10 +28,10 @@ function PainelAgrupado({ onSair }) {
   const termo = normalizar(busca.trim());
   const filtradas = termo
     ? inscricoes.filter((i) =>
-        [i.nome, i.cpf, i.protocolo, i[config.campo]].some((v) =>
-          normalizar(v).includes(termo)
-        )
+      [i.nome, i.cpf, i.protocolo, i[config.campo]].some((v) =>
+        normalizar(v).includes(termo)
       )
+    )
     : inscricoes;
 
   // 2. Agrupa pelo campo do painel
@@ -51,7 +51,11 @@ function PainelAgrupado({ onSair }) {
     // Blocos que nascem dos dados, sempre em ordem alfabética
     blocos = Object.entries(grupos)
       .map(([nome, itens]) => ({ nome, titulo: nome, itens, visual: null }))
-      .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR', { numeric: true }));
+      .sort((a, b) => {
+        if (a.nome === 'Sem informação') return 1;
+        if (b.nome === 'Sem informação') return -1;
+        return a.nome.localeCompare(b.nome, 'pt-BR', { numeric: true });
+      })
   }
 
   // 4. A coluna do campo agrupado é redundante dentro do bloco

@@ -9,9 +9,7 @@ function Home({ onSair }) {
     <div className="bg-light min-vh-100 d-flex flex-column justify-content-between">
       <div>
         <Navbar onSair={onSair} />
-        <div className="container-fluid px-4">
-          <MenuCards />
-        </div>
+        <MenuCards />
       </div>
 
       <Rodape />
