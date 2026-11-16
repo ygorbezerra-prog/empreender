@@ -1,6 +1,6 @@
 import { SITUACAO } from '../constants/status';
 
-// Quantas inscrições gerar. Mude à vontade (ex.: 500) para testar o desempenho.
+// Quantas inscrições gerar.
 const TOTAL = 150;
 
 // Gerador pseudoaleatório com semente fixa: os dados são sempre os mesmos
@@ -33,7 +33,6 @@ const SOBRENOMES = [
 
 const RAMOS = ['COMERCIAL', 'CONFECÇÕES', 'PADARIA', 'ARTESANATO', 'MERCEARIA', 'AGROPECUÁRIA'];
 
-// Cidades repetidas aparecem mais vezes: algumas ficam com mais de 25 inscrições
 const CIDADES = [
   'João Pessoa', 'João Pessoa', 'João Pessoa', 'João Pessoa',
   'Campina Grande', 'Campina Grande', 'Campina Grande',
@@ -54,10 +53,12 @@ const EDITAIS = [
 
 const RESPONSAVEIS = ['Alê', 'Ana Clara', 'Rafael', 'Beatriz'];
 
+// Sorteio atualizado com a nova situação
 function sortearSituacao() {
   const n = aleatorio();
-  if (n < 0.45) return SITUACAO.VALIDADO;
-  if (n < 0.8) return SITUACAO.PENDENTE;
+  if (n < 0.35) return SITUACAO.VALIDADO;
+  if (n < 0.55) return SITUACAO.AGUARDANDO_SUPERVISAO; // O novo status da Supervisora
+  if (n < 0.85) return SITUACAO.PENDENTE;
   return SITUACAO.NEGADO;
 }
 
@@ -66,11 +67,11 @@ function gerarNome(tipo) {
     return `${sortear(RAMOS)} ${sortear(SOBRENOMES)} LTDA`;
   }
   const partes = [sortear(PRIMEIROS_NOMES)];
-  if (aleatorio() < 0.3) partes.push(sortear(PRIMEIROS_NOMES)); // nome composto
+  if (aleatorio() < 0.3) partes.push(sortear(PRIMEIROS_NOMES)); 
   if (aleatorio() < 0.2) partes.push(aleatorio() < 0.5 ? 'DE' : 'DA');
   partes.push(sortear(SOBRENOMES));
   if (aleatorio() < 0.6) partes.push(sortear(SOBRENOMES));
-  if (aleatorio() < 0.15) partes.push(sortear(SOBRENOMES)); // nome bem longo
+  if (aleatorio() < 0.15) partes.push(sortear(SOBRENOMES)); 
   return partes.join(' ');
 }
 
@@ -86,10 +87,12 @@ export const inscricoesMock = Array.from({ length: TOTAL }, (_, i) => {
     protocolo: `${String(Math.floor(i / 1000) + 1).padStart(2, '0')}.${String(i % 1000).padStart(3, '0')}.${digitos(3)}`,
     responsavel: sortear(RESPONSAVEIS),
     situacao: sortearSituacao(),
+    // Propriedade nova: simula se tem ou não anexo no banco antigo
+    anexo_sistema_secretaria: aleatorio() > 0.7 
   };
 });
 
-// Caso especial: município vazio, para testar o bloco "Sem informação"
+// Caso especial: município vazio
 inscricoesMock.push({
   id: TOTAL + 1,
   cpf: '000.000.000-00',
@@ -100,4 +103,5 @@ inscricoesMock.push({
   protocolo: '99.999.999',
   responsavel: 'Alê',
   situacao: SITUACAO.PENDENTE,
+  anexo_sistema_secretaria: true // Força o clipe de anexo aparecer neste teste
 });

@@ -1,25 +1,24 @@
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000/api';
-
+// Removida a chamada real de fetch temporariamente para testar a validação de cargos
 export async function login(credencial, senha) {
-  let resposta;
-
-  try {
-    resposta = await fetch(`${API_URL}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ credencial, senha }),
-    });
-  } catch {
-    throw new Error('Não foi possível conectar ao servidor.');
-  }
-
-  if (resposta.status === 401) {
-    throw new Error('Usuário ou senha incorretos.');
-  }
-  if (!resposta.ok) {
-    throw new Error('Erro no servidor. Tente novamente em instantes.');
-  }
-
-  return resposta.json();
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (credencial === 'supervisora' && senha === '123') {
+        resolve({
+          id: 1,
+          nome: 'Ana (Supervisão)',
+          perfil: 'SUPERVISOR',
+          token: 'token-fake-super'
+        });
+      } else if (credencial === 'estagiario' && senha === '123') {
+        resolve({
+          id: 2,
+          nome: 'João (Estágio)',
+          perfil: 'ESTAGIARIO',
+          token: 'token-fake-estag'
+        });
+      } else {
+        reject(new Error('Credenciais inválidas! Teste usuário "supervisora" ou "estagiario" e senha "123".'));
+      }
+    }, 800);
+  });
 }

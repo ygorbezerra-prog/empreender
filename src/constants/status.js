@@ -1,5 +1,6 @@
 export const SITUACAO = {
   VALIDADO: 'VALIDADO',
+  AGUARDANDO_SUPERVISAO: 'AGUARDANDO SUPERVISÃO',
   PENDENTE: 'PENDENTE DOCUMENTO',
   NEGADO: 'NEGADO',
 };
@@ -11,6 +12,13 @@ export const STATUS_CONFIG = [
     cardClass: 'card-status-validado',
     headerTextClass: 'text-success',
     iconClass: 'bi bi-check-circle-fill',
+  },
+  {
+    situacao: SITUACAO.AGUARDANDO_SUPERVISAO,
+    titulo: 'Em análise',
+    cardClass: 'card-status-aguardando',
+    headerTextClass: 'text-info-emphasis',
+    iconClass: 'bi bi-hourglass-split',
   },
   {
     situacao: SITUACAO.PENDENTE,
@@ -28,9 +36,9 @@ export const STATUS_CONFIG = [
   },
 ];
 
-// Cor do selo de situação dentro das tabelas
 export const BADGE_SITUACAO = {
   [SITUACAO.VALIDADO]: 'bg-success',
+  [SITUACAO.AGUARDANDO_SUPERVISAO]: 'bg-info text-dark',
   [SITUACAO.PENDENTE]: 'bg-warning text-dark',
   [SITUACAO.NEGADO]: 'bg-danger',
 };
